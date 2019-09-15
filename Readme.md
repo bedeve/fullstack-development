@@ -20,12 +20,11 @@ yarn
 yarn docz:dev
 ```
 
-Each folder in `./packages/` is a chapter
+Each folder in `./packages/` is a cit hapter
 
 At the top of each `.md` or `.mdx` file you can set the name
 and the route that will be used.
 
-The structure of the documentation is mostly filled.
 
-Contributions to this repositery is done by branching and
+Contributions to this repository is done by branching and
 merging with master.
