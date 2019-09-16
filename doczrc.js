@@ -1,3 +1,4 @@
 export default {
-    title: "BeDeve"
+    title: "BeDeve",
+    dest: "docs"
 }
