@@ -20,7 +20,7 @@ yarn
 yarn docz:dev
 ```
 
-Each folder in `./packages/` is a cit hapter
+Each folder in `./packages/` is a chapter
 
 At the top of each `.md` or `.mdx` file you can set the name
 and the route that will be used.
