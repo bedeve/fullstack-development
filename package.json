@@ -33,6 +33,6 @@
     "dev": "start-storybook -p 5555",
     "coverage": "jest --coverage",
     "unit": "jest",
-    "deploy": "yarn docz build && cd docs && git add * && git commit -m \"update\" && git push && cd .."
+    "deploy": "sh deploy.sh"
   }
 }
