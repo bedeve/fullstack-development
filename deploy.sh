@@ -8,3 +8,4 @@ git stash
 git add docs 
 git commit -m \"update docs\" 
 git push
+git stash pop
