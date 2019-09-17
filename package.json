@@ -32,6 +32,7 @@
     "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.story.js,**/*.spec.js",
     "dev": "start-storybook -p 5555",
     "coverage": "jest --coverage",
-    "unit": "jest"
+    "unit": "jest",
+    "deploy": "yarn docz build && cd docs && git add * && git commit -m \"update\" && git push && cd .."
   }
 }
