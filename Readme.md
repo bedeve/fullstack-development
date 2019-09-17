@@ -1,6 +1,6 @@
 ---
-name: monorepo
-route: 1.0. Readme
+name: 1.0 Get Started
+route: readme
 ---
 
 # Fullstack development monorepo
