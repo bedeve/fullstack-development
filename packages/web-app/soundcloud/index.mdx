@@ -7,36 +7,36 @@ route: web-app/soundcloud
 ## Model
 
 ### User
-    1. email - *String*
-    2. password - *String*
-    3. age - *Number*
-    4. gender - *Enum*
-    5. customGender - *String*
-    6. displayName - *String*
+    1. email -> String
+    2. password -> String
+    3. age -> Number
+    4. gender -> Enum
+    5. customGender -> String
+    6. displayName -> String
 
 ### Track
-    1. name - *String*
-    2. author - *User*
-    3. duration - *Number*
-    4. date - *Date*
-    5. tags - [string]
+    1. name -> String
+    2. author -> User
+    3. duration -> Number
+    4. date -> Date
+    5. tags -> [String]
     
 ### UserTrackLikes
-    1. user - *User*
-    2. track - *Track*
+    1. user -> User
+    2. track -> Track
 
 ### Playlist
 
-    **Properties**
+#### Properties
 
-    1. name - *String*
-    2. date - *Date*
-    3. duration - *Number*
-    4. cover - *File*
-    5. numberOfTracks - *Number*
-    6. tracks - [Track]
+    1. name -> String
+    2. date -> Date
+    3. duration -> Number
+    4. cover -> File
+    5. numberOfTracks -> Number
+    6. tracks -> [Track]
     
-    **Mutations**
+#### Mutations
 
     1. addNewTrack(track: Track)
     2. addMultipleTracks(tracks: [Track])
@@ -44,15 +44,13 @@ route: web-app/soundcloud
     4. deleteTrackByIndex(index: Number)
 
 ### UserPlaylistLikes
-    1. user - *User*
-    2. playlist - *Playlist*
+    1. user -> User
+    2. playlist -> Playlist
 
 ### UserFollowed
-    1. user - *User*
-    2. followedBy - *User*
+    1. user -> User
+    2. followedBy -> User
 
 
     
     
-
-
