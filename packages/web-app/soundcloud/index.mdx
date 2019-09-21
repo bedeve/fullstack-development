@@ -1,0 +1,44 @@
+---
+name : SoundCloud 
+route : soundcloud
+---
+## User
+* email (string)
+* username (string)
+* password (string)
+* gender (enum)
+    * customGender (string)
+*displayName (string)
+
+## Track
+* author (User)
+* duration (number)
+* tags [string]
+* title (string)
+* date (date)
+* like (UserTrackLikes)
+* image (file)
+
+## UserTrackLikes
+* user (User)
+* track (Track)
+
+## Playlist
+ * author (User)
+* duration (number)
+* tags [string]
+* title (string)
+* date (date)
+* like (UserTrackLikes)
+* image (file)
+* tracks [track]
+### Mutations
+* addNewTrack(track)
+* moveTrack(Playlist, oldIndex, newIndex)
+* addMultipleTracks([track])
+* deleteTrackByIndex(index)
+
+## UserFollowed
+* user
+* followedBy
+
