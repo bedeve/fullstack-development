@@ -1,0 +1,47 @@
+# models:
+- User
+    * email <string>
+    * password <string>
+    * age <number>
+    * gender <enum>  
+        female
+        male
+        prefer not to say
+        custom 
+            customGender  <string>
+    * displayName <string>
+    * likes
+    * playlists
+    * albums
+    * stations 
+    * following 
+    * history
+
+- Track
+    * authorName <User>
+    * trackName <string>
+    * duration <number>
+    * date <date>  
+    * image <file>
+    * tags  [string] 
+- UserTrackLike 
+    * user <User>
+    * track <Track>
+- Playlists    
+    * playlistName <string>
+    * authorName <User>
+    * duration <number>
+    * date <date>  
+    * image <file>
+    * tracks [Track]
+    * likes <UserPlaylistLikes>
+
+    MUTATIONS:
+        addNewTrack <Track>
+        moveTrack <newindex,oldindex>
+        addMultipleTracks [Track]
+        deleteTrackbyIndex <number>
+
+- UserFollowed -- Many to many --  
+    * user <User>
+    * followedBy <User>      
