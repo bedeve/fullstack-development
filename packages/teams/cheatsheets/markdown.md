@@ -1,5 +1,5 @@
 ---
-name: 1.3.1 Markdown Cheatsheet
+name: 3.1.1 Markdown Cheatsheet
 route: cheatsheets/markdown
 ---
 This is intended as a quick reference and showcase. For more complete info, see [John Gruber's original spec](http://daringfireball.net/projects/markdown/) and the [Github-flavored Markdown info page](http://github.github.com/github-flavored-markdown/).
@@ -20,7 +20,7 @@ Note that there is also a [Cheatsheet specific to Markdown Here](./Markdown-Here
 [Line Breaks](#lines)  
 [YouTube Videos](#videos)  
 
-<a name="headers"/>
+
 
 ## Headers
 
@@ -56,7 +56,7 @@ Alt-H1
 Alt-H2
 ------
 
-<a name="emphasis"/>
+
 
 ## Emphasis
 
@@ -79,7 +79,7 @@ Combined emphasis with **asterisks and _underscores_**.
 Strikethrough uses two tildes. ~~Scratch this.~~
 
 
-<a name="lists"/>
+
 
 ## Lists
 
@@ -121,7 +121,7 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 - Or minuses
 + Or pluses
 
-<a name="links"/>
+
 
 ## Links
 
@@ -173,7 +173,7 @@ Some text to show that the reference links can follow later.
 [1]: http://slashdot.org
 [link text itself]: http://www.reddit.com
 
-<a name="images"/>
+
 
 ## Images
 
@@ -199,7 +199,7 @@ Reference-style:
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
-<a name="code"/>
+
 
 ## Code and Syntax Highlighting
 
@@ -245,7 +245,7 @@ print s
 sudo apt install something
 ```
 
-<a name="tables"/>
+
 
 ## Tables
 
@@ -285,7 +285,7 @@ Markdown | Less | Pretty
 *Still* | `renders` | **nicely**
 1 | 2 | 3
 
-<a name="blockquotes"/>
+
 
 ## Blockquotes
 
@@ -305,7 +305,7 @@ Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
 
-<a name="html"/>
+
 
 ## Inline HTML
 
@@ -329,7 +329,7 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
 
-<a name="hr"/>
+
 
 ## Horizontal Rule
 
@@ -363,7 +363,7 @@ ___
 
 Underscores
 
-<a name="lines"/>
+
 
 ## Line Breaks
 
@@ -389,7 +389,7 @@ This line is only separated by a single newline, so it's a separate line in the 
 
 (Technical note: *Markdown Here* uses GFM line breaks, so there's no need to use MD's two-space line breaks.)
 
-<a name="videos"/>
+
 
 ## YouTube Videos
 
