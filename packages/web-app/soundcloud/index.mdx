@@ -1,0 +1,58 @@
+---
+name : 2.5 Soundcloud Reverse Engineering
+route: soundcloud
+---
+
+
+## Model
+
+### User
+    1. email - *String*
+    2. password - *String*
+    3. age - *Number*
+    4. gender - *Enum*
+    5. customGender - *String*
+    6. displayName - *String*
+
+### Track
+    1. name - *String*
+    2. author - *User*
+    3. duration - *Number*
+    4. date - *Date*
+    5. tags - [string]
+    
+### UserTrackLikes
+    1. user - *User*
+    2. track - *Track*
+
+### Playlist
+
+    **Properties**
+
+    1. name - *String*
+    2. date - *Date*
+    3. duration - *Number*
+    4. cover - *File*
+    5. numberOfTracks - *Number*
+    6. tracks - [Track]
+    
+    **Mutations**
+
+    1. addNewTrack(track: Track)
+    2. addMultipleTracks(tracks: [Track])
+    3. moveTrack(pindex: Number,nindex: Number)
+    4. deleteTrackByIndex(index: Number)
+
+### UserPlaylistLikes
+    1. user - *User*
+    2. playlist - *Playlist*
+
+### UserFollowed
+    1. user - *User*
+    2. followedBy - *User*
+
+
+    
+    
+
+
