@@ -211,14 +211,22 @@ Inline `code` has `back-ticks around` it.
 
 Inline `code` has `back-ticks around` it.
 
-Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting.
+Blocks of code are either fenced by lines with three back-ticks `<code>```</code>`, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting.
 
-<pre lang="no-highlight"><code>
-```javascript
+    ```javascript
+    var s = "JavaScript syntax highlighting";
+    alert(s);
+    ```
+
+```javascript  
 var s = "JavaScript syntax highlighting";
 alert(s);
 ```
- 
+
+    ```python
+    s = "Python syntax highlighting"
+    print s
+    ```
 
 ```python
 s = "Python syntax highlighting"
@@ -226,25 +234,14 @@ print s
 ```
 
 
-
-```sh
-sudo apt install something
-```
-</code></pre>
+      ```bash
+      sudo apt install something
+      ```
 
 
 
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
 
-```python
-s = "Python syntax highlighting"
-print s
-```
-
-```sh
+```bash
 sudo apt install something
 ```
 
