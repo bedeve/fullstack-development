@@ -213,15 +213,19 @@ Inline `code` has `back-ticks around` it.
 
 Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting.
 
-<pre lang="no-highlight"><code>```javascript
+<pre lang="no-highlight"><code>
+```javascript
 var s = "JavaScript syntax highlighting";
 alert(s);
 ```
  
+
 ```python
 s = "Python syntax highlighting"
 print s
 ```
+
+
 
 ```sh
 sudo apt install something
@@ -332,7 +336,7 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 
 ## Horizontal Rule
 
-```
+```no-highlight
 Three or more...
 
 ---
@@ -370,7 +374,7 @@ My basic recommendation for learning how line breaks work is to experiment and d
 
 Here are some things to try out:
 
-```
+```no-highlight
 Here's a line for us to start with.
 
 This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
