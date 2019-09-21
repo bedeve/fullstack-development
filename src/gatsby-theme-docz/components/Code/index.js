@@ -9,7 +9,7 @@ export const Code = ({children, className: outerClassName}) => {
 	if(outerClassName) {
 	  [language] = outerClassName.replace(/language-/, '').split(' ')
 	}else{
-	  language = "no-highlight"
+	  language = "bash"
 	}
 	console.log()
 	const theme = usePrismTheme()
