@@ -1,0 +1,48 @@
+# DATA
+## MODELS
+
+### User 
+* email : string 
+* passowrd : string
+* age : numeric
+* gender :enam ( female/ male /prefer not to say ) 
+* cgender (=gender custom) : string 
+* display name : string 
+
+### Track 
+* dhmiourgos : User = einai me kefalaio gia na dhlwnei modelo (models)
+* onoma : string   
+* date : date  
+* tags :[ string ] = array of strings (mporei na exei polla )
+* fwto : file 
+* diarkeia : number 
+
+
+### UserTrackLikes 
+* user  : User
+* track : Track
+
+### Playlist
+#### Properties
+* onoma : string 
+* date : date
+* dhmiourgo : User
+* diarkeia : number
+* image : file
+* tags : [ string ]
+* tracks = [ track ]
+
+#### Mutations 
+* addNewTrack (track : track)  (=input)
+* moveTrack (old index, new index)
+* addMultipletracks ([ track ])
+* deleteTrackByIndex (index)
+
+### UserPlaylist 
+* user  : User
+* playlist : Playlist  
+
+### UserFollowed
+* user: User
+* followedby : User 
+
