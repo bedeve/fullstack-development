@@ -1,0 +1,65 @@
+## Soundcloud
+
+1.Data
+
+1.1. User
+
+email : text string
+password : text string
+age : number
+gender: enam  epiloges (female,male,prefer not to say,custom)
+custom gender : text string
+display name : text string
+playlist : [Track]
+
+
+1.2 Track `onoma montelou me kefalaio to prwto`
+
+track name : string
+author : User
+date : number
+tags : array of strings= [string]
+image : file
+duration : number
+likes : `sxesi many_to_many`
+
+1.3 Usertracklikes
+
+user : User
+track : Track
+
+1.4 Playlist
+
+name : text string
+date : number
+creator : User
+duration : number
+image : file
+tracks : [Track]
+likes : `sxesi many to many`
+tag : array of strings
+
+
+1.4.1.Mutations
+
+add new track : Track
+move track : number : old index , new index
+add multiple tracks : 
+delete track by index : number
+
+1.5 Userplaylistlikes
+
+user : User
+playlist : Playlist
+
+
+1.6 Userfollwed
+
+user : User
+followedby : User 
+
+
+
+Queries
+
+Mutations
