@@ -12,7 +12,7 @@ git clone https://github.com/bedeve/fullstack-development.git
 # or git@github.com:bedeve/fullstack-development.git if you 
 # are team member 
 cd fullstack-development
-yarn 
+yarn start
 ```
 
 ## Run docs
