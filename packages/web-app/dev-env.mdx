@@ -5,25 +5,32 @@ route: web-app/dev-env-setup
 
 
 ## Required software
-
+##TODO Style chromium section and add info for dev tools 
 Chromium
 
 ```sh
 sudo apt install chromium-browser
 ```
 
+##Style nvm/node section and add info for nvm usage
+##fix bug with export
 Node and npm
-
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install 8
 ```
+
+##TODO Style keepass and add info
+##add instructions with screenshots of creating password and using auto-type feature
 Keepass
 ```sh
 sudo apt install keepassx
 ```
+use keepass for storing ssh keys https://julien.coubronne.net/en/2016/07/15/store-your-ssh-keys-in-keepass-and-use-them-with-keeagent/
 
+##TODO Style and expand info for vscode 
+##add usage instructions for using git through vscode with screenshots
 VsCode
 The repository and key can also be installed manually with the following script:
 ```sh
