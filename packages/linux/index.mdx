@@ -105,11 +105,11 @@ In the directory we want to track with git
 ### Stage changes
 ##TODO Style `Stage changes better`
 
-- Stage all changes in <file> for the next commit.
+- `Stage all changes in <file> for the next commit.`
  
         git add <file>
 
-- Stage all changes in <directory> for the next commit.
+- `Stage all changes in <directory> for the next commit.`
  
         git add <directory>
 
@@ -147,6 +147,14 @@ Examples:
 
 ### push 
 
+### pull
+Examples:
+- Fetch all Git branches
+
+        git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+        git fetch --all
+        git pull --all
+
 ### branch
 To create and checkout a new branch 
 ```sh
@@ -165,6 +173,11 @@ git merge another_branch_name
 ### resolve conflicts
 
 ### Take code back in time (reset)
+Examples:
+- Reset local repository branch to be just like remote repository
+
+        git fetch origin
+        git reset --hard origin/master
 
 ## Project folders organizing
 
