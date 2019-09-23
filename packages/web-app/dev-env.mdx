@@ -21,13 +21,38 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install 8
 ```
 
-##TODO Style keepass and add info
-##add instructions with screenshots of creating password and using auto-type feature
-Keepass
+### Keepass
+#### Installation
 ```sh
 sudo apt install keepassx
 ```
-use keepass for storing ssh keys https://julien.coubronne.net/en/2016/07/15/store-your-ssh-keys-in-keepass-and-use-them-with-keeagent/
+#### Instructions
+- Launch keepass from Menu or from terminal:
+```sh
+keepassx
+```
+- The first time you launch keepass click Database -> New Database:
+  <p> <img src="screenshots/newdb.png" /> </p>
+
+- Enter a strong password (a-z, 0-9, symbols). It is the only password YOU MUST remember from now on. Click "OK":
+    <p> <img src="screenshots/pswd.png" /> </p>
+    HINT: Forgetting this password makes your password database inaccessible.
+
+- When it comes to register to a website:
+    1. click "Add new entry":
+    <p> <img src="screenshots/newentry.png" /> </p>
+
+    2. Enter the corresponding url, your username and press "Gen." then "Accept" and "OK". Keepass will produce a strong possword for you to use. Copy it and paste it to "Password" and "Confirm Password" inputs of the registration page:
+    <p> <img src="screenshots/gen.png" /> </p>
+
+- When it comes to sign in to a website:
+    1. Click at username/e-mail input field at your browser.
+    2. Launch keepass and enter the database password.
+    3. Select the corresponding entry for the url you want to log in to:
+       <p> <img src="screenshots/select.png" /> </p>
+    4. Press `<Ctrl + v>` and keepass will automatically sign you in to your account.
+
+- Use keepass for storing ssh keys https://julien.coubronne.net/en/2016/07/15/store-your-ssh-keys-in-keepass-and-use-them-with-keeagent/
 
 ##TODO Style and expand info for vscode 
 ##add usage instructions for using git through vscode with screenshots
