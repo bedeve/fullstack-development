@@ -5,26 +5,32 @@ route: web-app/dev-env-setup
 
 
 ## Required software
-
+##TODO Style chromium section and add info for dev tools 
 Chromium
 
 ```sh
 sudo apt install chromium-browser
 ```
 
+##Style nvm/node section and add info for nvm usage
+##fix bug with export
 Node and npm
-
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install 8
 ```
+
+##TODO Style keepass and add info
+##add instructions with screenshots of creating password and using auto-type feature
 Keepass
 ```sh
 sudo apt install keepassx
 ```
+use keepass for storing ssh keys https://julien.coubronne.net/en/2016/07/15/store-your-ssh-keys-in-keepass-and-use-them-with-keeagent/
 
-VsCode
+### VsCode
+#### Installation
 The repository and key can also be installed manually with the following script:
 ```sh
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -37,3 +43,12 @@ sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install code
 ```
+#### Instructions for using Git through VScode
+1. After typing some code and save, click Source Control or press `<Ctrl + Shift + g>`:
+    <p> <img src="screenshots/sourcecontrol.png" /> </p>
+2. Instead of git adding from terminal, click the plus icon:
+    <p> <img src="screenshots/gitadd.png" /> </p>
+3. Instead of git commiting from terminal, type your commit message in the "Message" input box and click the check icon:
+    <p> <img src="screenshots/commit.png" /> </p>
+4. Publish branch, push, pull and more from the "three dots" icon:
+    <p> <img src="screenshots/push.png" /> </p>
