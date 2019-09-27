@@ -27,18 +27,19 @@ boot startup options
 ### Filesystem 
 
 ### Terminal Keyboard Shortcuts
-* `<Alt + . >: use the previous argument`
-* `<Ctrl + Shift + C>: copy the selected text`
-* `<Ctrl + Shift + V>: paste the clipboard text`
-* `<Ctrl + Shift + T>: open a new tabbed terminal in the same path`
+ *  `<Alt + . >`: use the previous argument 
+ *  `<Ctrl + Shift + C>`: copy the selected text 
+ *  `<Ctrl + Shift + V>`: paste the clipboard text 
+ * `<Ctrl + Shift + T>`: open a new tabbed terminal in the same path
+
 
 #### List directory contents
-`ls`
+ ls 
 
 #### Change directory
 Command : 
 
-    cd <folder_name>
+     cd <folder_name>
 
 Examples:
 - One folder back
@@ -62,7 +63,7 @@ Examples:
 ##TODO add info styled as cd / Copy the info from https://www.geeksforgeeks.org/touch-command-in-linux-with-examples/
 Command : 
 
-        touch  <fileName>
+         touch  <fileName>
 
 ##Example with data from link
 - Check whether a file is created or not. If not created then don’t create it. This command avoids creating files.
@@ -70,15 +71,18 @@ Command :
         touch -c fileName
 
 #### Edit file
+
 Command : 
         
         nano <fileName>
               or
         nano
 
+
 Keyboard Shortcuts:
 - Save a file
   
+
         <Ctrl + o>
 
 - Cut an an entire line
@@ -127,11 +131,12 @@ Keyboard Shortcuts:
         nano -E [filename]
 
 
+
 #### Create New Folder
 ##TODO style as cd
-command: `mkdir <folder_name>`
+ command:  mkdir `<folder_name>` 
 
-example create a folder named lesson: `mkdir lesson`
+example create a folder named lesson:  mkdir lesson 
 
 
 ## Git version control
@@ -150,19 +155,18 @@ In the directory we want to track with git
 
 ##TODO Get info from https://alvinalexander.com/git/git-show-change-username-email-address
 
-`git config`
+ git config 
 
 
 ### Stage changes
-##TODO Style `Stage changes` better
 
-- Stage all changes in `<file>` for the next commit.
+ - Stage all changes in  `<file>`  for the next commit.
  
-        git add <file>
+         git add <file>
 
-- Stage all changes in `<directory>` for the next commit.
+ - Stage all changes in  `<directory>`  for the next commit.
  
-        git add <directory>
+         git add <directory>
 
 - Begin an interactive staging session that lets you choose
 portions of a file to add to the next commit. 
@@ -178,7 +182,7 @@ Examples:
 
         git add packages/linux/*  
 
-  2. Add all files ending with `.js` in the packages/linux directory
+  2. Add all files ending with  .js  in the packages/linux directory
 
         git add packages/linux/*.js  
 
@@ -198,24 +202,36 @@ Examples:
 
 ### push 
 
+### pull
+Examples:
+- Fetch all Git branches
+
+        git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+        git fetch --all
+        git pull --all
+
 ### branch
 To create and checkout a new branch 
-```sh
-git checkout -b new_branch_name
-```
+
+        git checkout -b new_branch_name
 
 ### stash
 
 ### merge
 To merge from another branch
 
-```sh
-git merge another_branch_name
-```
+
+        git merge another_branch_name
+   
 
 ### resolve conflicts
 
 ### Take code back in time (reset)
+Examples:
+- Reset local repository branch to be just like remote repository
+
+        git fetch origin
+        git reset --hard origin/master
 
 ## Project folders organizing
 
