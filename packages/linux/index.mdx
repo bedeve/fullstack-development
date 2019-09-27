@@ -147,19 +147,39 @@ Requirements: github (or other service) account<br/>
 Example:
 
 - Create a new ssh key.Your email has to be the one that is at your account <br/>
-`ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+```
+
 - You are asked to "Enter a file in which to save the key" press Enter. 
   This accepts the default file location. the key's file is /Users/you/.ssh/id_rsa
--You are asked to Enter new passphrase (empty for no passphrase): [Type new passphrase] (hind: press enter)
+
+- You are asked to Enter new passphrase (empty for no passphrase): [Type new passphrase] (hind: press enter)
+
 - You are asked to Enter same passphrase again: [One more time for luck] (hind: press enter )
+
 - Copy ssh key <br/>
-  `cat .ssh/id.pub`
+
+  ```
+  cat .ssh/id.pub
+  
+  ```
 - Go to your GitHub account -> the Settings ->Personal Settings -> SSH and GPG keys -> New SSH key
   and press Ctrl+Shift+V -> Add SSH key
+
 - Start the ssh-agent in the background.<br/>
-  `eval "$(ssh-agent -s)"`
+  ```
+  eval "$(ssh-agent -s)"
+  
+  ```
+
 - Add your SSH private key to the ssh-agent.  <br/>
-  ```ssh-add ~/.ssh/id_rsa```        <br/>
+  ```
+  ssh-add ~/.ssh/id_rsa
+  ```       
+   <br/>
   If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
 
 ### add remote
