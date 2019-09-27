@@ -58,15 +58,43 @@ Examples:
 [More](https://www.tecmint.com/cd-command-in-linux/)
 
 #### Create new file
-##TODO add info styled as cd / Copy the info from https://www.geeksforgeeks.org/touch-command-in-linux-with-examples/
+
 Command : 
 
         touch  <fileName>
 
-##Example with data from link
+Examples:
+
+- Create multiple files
+
+        touch <File1_name> <File2_name> <File3_name>
+
+- Change access time only
+
+        touch -a <fileName>
+
 - Check whether a file is created or not. If not created then don’t create it. This command avoids creating files.
 
-        touch -c fileName
+        touch -c <fileName>
+
+- Update access and modification time
+
+        touch -c-d <fileName>
+
+- Change modification time only
+
+        touch -m <fileName>
+
+- Use the timestamp of another file
+
+        touch -r <second_file_name> <first_file_name>
+
+- Create a file using a specified time 
+
+        touch -t YYMMDDHHMM <fileName>
+
+
+
 
 #### Edit file
 ##TODO add info styled as cd / Copy the info from https://www.howtoforge.com/linux-nano-command/
