@@ -30,6 +30,7 @@ boot startup options
 * `<Alt + . >: use the previous argument`
 * `<Ctrl + Shift + C>: copy the selected text`
 * `<Ctrl + Shift + V>: paste the clipboard text`
+* `<Ctrl + Shift + T>: open a new tabbed terminal in the same path`
 
 #### List directory contents
 `ls`
@@ -69,14 +70,62 @@ Command :
         touch -c fileName
 
 #### Edit file
-##TODO add info styled as cd / Copy the info from https://www.howtoforge.com/linux-nano-command/
+Command : 
+        
+        nano <fileName>
+              or
+        nano
 
-`nano <fileName>`
-
-##Example with data from link
+Keyboard Shortcuts:
 - Save a file
   
-  To save a file, use the keyboard shortcut `Ctrl+o`
+        <Ctrl + o>
+
+- Cut an an entire line
+
+        <Ctrl + k>
+
+- Select a particular string
+
+        1. <Alt + A> with the cursor at the beginning of the string ONCE
+        2. →/←/↑/↓ to select text
+        3. <Ctrl + k> to cut only the selected text this time
+
+- Paste text
+
+        <Ctrl + u>
+
+- Search for a word
+
+        1. <Ctrl + w>
+        2. Enter the word which you want to search
+        3. Hit Enter and the tool will take you to the matched entry
+
+- Replace a word
+
+        1. <Ctrl + \>
+        2. Enter the word which you want to replace
+        3. Enter the replacement word
+        4. Press y/n repeatedly to confirm or not the changes in the whole document
+
+- Insert another file into the current one
+
+        1. Move the cursor to the insert position
+        2. <Ctrl + R>
+        3. Give the path of the file
+
+- Display the cursor position
+        
+        <Ctrl + c>
+
+- Exit nano
+
+        <Ctrl + x>
+
+- Convert tabs into spaces
+
+        nano -E [filename]
+
 
 #### Create New Folder
 ##TODO style as cd
