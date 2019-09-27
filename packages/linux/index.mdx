@@ -103,13 +103,12 @@ In the directory we want to track with git
 
 
 ### Stage changes
-##TODO Style `Stage changes better`
 
-- Stage all changes in <file> for the next commit.
+- Stage all changes in `<file>` for the next commit.
  
         git add <file>
 
-- Stage all changes in <directory> for the next commit.
+- Stage all changes in `<directory>` for the next commit.
  
         git add <directory>
 
@@ -117,19 +116,22 @@ In the directory we want to track with git
 portions of a file to add to the next commit. 
 This will present you with a chunk of changes and prompt you
 for a command. 
-Use y to stage the chunk, n to ignore the chunk,
- s to split it into smaller chunks,
-  e to manually edit the chunk, and q to exit.
 
+   Use **y** to stage the chunk, **n** to ignore the chunk,
+ **s** to split it into smaller chunks,
+ **e** to manually edit the chunk, and **q** to exit.
+  
         git add -p
-Examples:
-  1. Add all files in the packages/linux directory
 
-        git add packages/linux/*  
+Examples:
+
+  1.  Add all files in the packages/linux directory
+
+        git add packages/linux/*    
 
   2. Add all files ending with `.js` in the packages/linux directory
 
-        git add packages/linux/*.js  
+        git add packages/linux/*.js 
 
 ### diff 
 
