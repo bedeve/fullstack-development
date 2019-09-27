@@ -27,17 +27,19 @@ boot startup options
 ### Filesystem 
 
 ### Terminal Keyboard Shortcuts
-* `<Alt + . >: use the previous argument`
-* `<Ctrl + Shift + C>: copy the selected text`
-* `<Ctrl + Shift + V>: paste the clipboard text`
+ *  `<Alt + . >`: use the previous argument 
+ *  `<Ctrl + Shift + C>`: copy the selected text 
+ *  `<Ctrl + Shift + V>`: paste the clipboard text 
+ * `<Ctrl + Shift + T>`: open a new tabbed terminal in the same path
+
 
 #### List directory contents
-`ls`
+ ls 
 
 #### Change directory
 Command : 
 
-    cd <folder_name>
+     cd <folder_name>
 
 Examples:
 - One folder back
@@ -61,7 +63,7 @@ Examples:
 
 Command : 
 
-        touch  <fileName>
+         touch  <fileName>
 
 Usage instructions:
 
@@ -97,14 +99,66 @@ Usage instructions:
 
 
 #### Edit file
-##TODO add info styled as cd / Copy the info from https://www.howtoforge.com/linux-nano-command/
 
-`nano <fileName>`
+Command : 
+        
+        nano <fileName>
+              or
+        nano
 
-##Example with data from link
+
+Keyboard Shortcuts:
 - Save a file
   
-  To save a file, use the keyboard shortcut `Ctrl+o`
+
+        <Ctrl + o>
+
+- Cut an an entire line
+
+        <Ctrl + k>
+
+- Select a particular string
+
+        1. <Alt + A> with the cursor at the beginning of the string ONCE
+        2. →/←/↑/↓ to select text
+        3. <Ctrl + k> to cut only the selected text this time
+
+- Paste text
+
+        <Ctrl + u>
+
+- Search for a word
+
+        1. <Ctrl + w>
+        2. Enter the word which you want to search
+        3. Hit Enter and the tool will take you to the matched entry
+
+- Replace a word
+
+        1. <Ctrl + \>
+        2. Enter the word which you want to replace
+        3. Enter the replacement word
+        4. Press y/n repeatedly to confirm or not the changes in the whole document
+
+- Insert another file into the current one
+
+        1. Move the cursor to the insert position
+        2. <Ctrl + R>
+        3. Give the path of the file
+
+- Display the cursor position
+        
+        <Ctrl + c>
+
+- Exit nano
+
+        <Ctrl + x>
+
+- Convert tabs into spaces
+
+        nano -E [filename]
+
+
 
 #### Create New Folder
 
@@ -112,7 +166,8 @@ Command:
 
         mkdir <folder_name>
 
-example create a folder named lesson: `mkdir lesson`
+
+example create a folder named lesson:  mkdir lesson 
 
 
 ## Git version control
@@ -128,19 +183,22 @@ In the directory we want to track with git
         git init
 
 ### Configure git 
-##TODO Get info from here https://alvinalexander.com/git/git-show-change-username-email-address
-`git config`
+
+##TODO Get info from https://alvinalexander.com/git/git-show-change-username-email-address
+
+ git config 
 
 
 ### Stage changes
 
-- Stage all changes in `<file>` for the next commit.
- 
-        git add <file>
+ - Stage all changes in  `<file>`  for the next commit.
 
-- Stage all changes in `<directory>` for the next commit.
  
-        git add <directory>
+         git add <file>
+
+ - Stage all changes in  `<directory>`  for the next commit.
+ 
+         git add <directory>
 
 - Begin an interactive staging session that lets you choose
 portions of a file to add to the next commit. 
@@ -159,7 +217,7 @@ Examples:
 
         git add packages/linux/*    
 
-  2. Add all files ending with `.js` in the packages/linux directory
+  2. Add all files ending with  .js  in the packages/linux directory
 
         git add packages/linux/*.js 
 
@@ -179,24 +237,36 @@ Examples:
 
 ### push 
 
+### pull
+Examples:
+- Fetch all Git branches
+
+        git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+        git fetch --all
+        git pull --all
+
 ### branch
 To create and checkout a new branch 
-```sh
-git checkout -b new_branch_name
-```
+
+        git checkout -b new_branch_name
 
 ### stash
 
 ### merge
 To merge from another branch
 
-```sh
-git merge another_branch_name
-```
+
+        git merge another_branch_name
+   
 
 ### resolve conflicts
 
 ### Take code back in time (reset)
+Examples:
+- Reset local repository branch to be just like remote repository
+
+        git fetch origin
+        git reset --hard origin/master
 
 ## Project folders organizing
 
