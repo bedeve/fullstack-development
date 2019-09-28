@@ -98,12 +98,54 @@ In the directory we want to track with git
         git init
 
 ### Configure git 
+Command : 
+```
+git config user.name
 
-##TODO Get info from https://alvinalexander.com/git/git-show-change-username-email-address
+```
+Examples:
+- Returns the user name :
 
- git config 
+  ```
+  git config user.name
+  
+  ```  returns:
+  ```
+  my_user_name
+  
+  ```
+- Returns the user name and some more information :
+  ```
+  git config --list
 
+  ```  returns:
+  ```
+  user.email=my_email@example.com
+  user.name=my_user_name
+  color.ui=true
 
+  ```
+- Change the Git username:
+  ```
+  git config --global user.name [your new username here]
+
+  ``` 
+- Returns the email address:
+  ```
+  git config user.email
+
+  ```
+  returns 
+  ```
+  my_email@example.com
+
+  ```
+
+- Change your Git email address:
+  ```
+  git config --global user.email [your new email address here]
+
+  ```
 ### Stage changes
 
  - Stage all changes in  `<file>`  for the next commit.
