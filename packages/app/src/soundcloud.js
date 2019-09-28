@@ -1,41 +1,50 @@
-import puppeteer from 'puppeteer'
-
-
-
-
+import puppeteer from 'puppeteer';
+const SOUNDCLOUD_BASE_URL = 'https://soundcloud.com/discover';
+const soundCloudSelectors = {
+  searchField: ".headerSearch__input",
+  searchListItem: ".sound__body",
+  itemName: ".sc-link-dark span",
+  itemUrl: ".sc-link-dark",
+  itemUser: ".soundTitle__usernameText",
+  itemImage: "",
+  itemTags: "",
+}
 export const searchSoundcloud = async () => {
-  const BASE_URL = 'https://soundcloud.com/'
-  const usernameField = ".soundTitle__usernameText"
-  const searchField = ".headerSearch__input"
   /** create a browser instance, then a page instance with it */
-  const browser = await puppeteer.launch(
-    {headless: false}
-  )
-  const page = await browser.newPage()
+  
+  const browser = await puppeteer.launch({
+    headless: false
+  });
 
-  await page.goto(`${BASE_URL}`)
-
-  await page.waitForSelector(searchField)
-  await page.click(searchField)
-  await page.type(searchField, "Bob Marley")
+  const page = await browser.newPage();
+  await page.goto(SOUNDCLOUD_BASE_URL);
+  await page.waitForSelector(soundCloudSelectors.searchField);
+  await page.click(soundCloudSelectors.searchField);
+  await page.type(soundCloudSelectors.searchField, "Bob Marley");
   await page.keyboard.press('Enter');
-  const searchListItem = ".sound__body";
-  const itemName = ".sc-link-dark span";
-  const itemUser;
-  const itemImage;
-  const itemUrl;
-  const itemTags;
-  await page.waitForSelector(searchListItem)
-  const results = await page.evaluate(() => {
-    const elements = Array.from(document.querySelectorAll(searchListItem))
+  await page.waitForSelector(soundCloudSelectors.searchListItem);
+
+  // to be able to pass variables in the function that will run in the browser
+  // we have to add the data after the function and also in the function
+  // arguments
+  const results = await page.evaluate(({
+    searchListItem, 
+    itemName, 
+    itemUrl, 
+    itemUser, 
+    itemImage, 
+    itemTags
+  }) => {
+    const elements = Array.from(document.querySelectorAll(searchListItem));
     return elements.map(element => {
       return {
         name: element.querySelector(itemName).textContent,
         url: element.querySelector(itemUrl).href,
-        img: element.querySelector(itemImage).src
-      }
-    })
-  })
-  return results
-}
-
+        user: element.querySelector(itemUser).textContent,
+        // img: element.querySelector(itemImage).src,
+        // tags: element.querySelector(itemTags).textContent,
+      };
+    });
+  }, soundCloudSelectors); // pass here any variables you need to access in the evaluate function
+  return results;
+};
