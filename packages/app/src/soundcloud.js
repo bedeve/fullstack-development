@@ -29,7 +29,6 @@ export const searchSoundcloud = async () => {
   const results = await page.evaluate(() => {
     const elements = Array.from(document.querySelectorAll(searchListItem))
     return elements.map(element => {
-      // console.log(element)
       return {
         name: element.querySelector(itemName).textContent,
         url: element.querySelector(itemUrl).href,
@@ -37,7 +36,6 @@ export const searchSoundcloud = async () => {
       }
     })
   })
-  console.log(results)
-  // return results
+  return results
 }
 
