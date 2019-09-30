@@ -9,7 +9,7 @@ const soundCloudSelectors = {
   itemImage: "",
   itemTags: "",
 }
-export const searchSoundcloud = async () => {
+export const searchSoundcloud = async (query) => {
   /** create a browser instance, then a page instance with it */
   
   const browser = await puppeteer.launch({
@@ -20,7 +20,7 @@ export const searchSoundcloud = async () => {
   await page.goto(SOUNDCLOUD_BASE_URL);
   await page.waitForSelector(soundCloudSelectors.searchField);
   await page.click(soundCloudSelectors.searchField);
-  await page.type(soundCloudSelectors.searchField, "Bob Marley");
+  await page.type(soundCloudSelectors.searchField, query);
   await page.keyboard.press('Enter');
   await page.waitForSelector(soundCloudSelectors.searchListItem);
 
