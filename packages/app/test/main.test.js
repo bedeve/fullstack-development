@@ -5,13 +5,14 @@ describe('searchSoundcloud', function () {
   before(function (done) {
     /** extend timeout because puppeteer takes a while */
     this.timeout(10000)
-    searchSoundcloud()
+    searchSoundcloud("bob marley")
     .then(res => {
       this.data = res
       console.log(this.data)
       done()
     }).catch(err => {
-      assert.fail(0, 1, 'Failed to fetch commits. URL could be broken or website is down.')
+      console.error("Error: ", err)
+      assert.fail(0, 1, 'Failed to fetch soundcloud songs. URL could be broken or website is down.')
     })
   })
 

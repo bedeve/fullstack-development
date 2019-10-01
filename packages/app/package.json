@@ -1,7 +1,7 @@
 {
-  "name": "soccer-scrape",
+  "name": "music-scrape",
   "version": "0.0.2",
-  "description": "Scrape football data from Bet365",
+  "description": "Music Site Scrapers",
   "main": "src/index.js",
   "scripts": {
     "dev": "backpack && node build/main.js",
@@ -12,8 +12,6 @@
       "env"
     ]
   },
-  "author": "Ollie Tribe <tribe@myself.com>",
-  "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
