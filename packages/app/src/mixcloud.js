@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-const MIXCLOUD_BASE_URL = 'https://soundcloud.com/discover';
+const MIXCLOUD_BASE_URL = 'https://mixcloud.com/discover';
 const mixcloudSelectors = {
   searchField: ".headerSearch__input",
   searchListItem: ".sound__body",
