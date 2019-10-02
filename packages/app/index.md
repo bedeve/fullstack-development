@@ -9,7 +9,7 @@ This package holds the code of the app.
 
 ### Todos
 
-1. scrape search, users, playlists channels from youtube, soundcloud, mixcloud
+1. scrape search, users, songs, playlists channels from youtube, soundcloud, mixcloud
 1. normalize the data to follow our schema
 1. add musicbrainz apis or copy whole musicbrainz data to mongo
 1. store in mongodb
