@@ -20,17 +20,17 @@ describe('searchSoundcloud', function () {
     expect(this.data).to.be.an('array')
   })
 
-  // it('The array contains objects', function () {
-  //   expect(this.data[0]).to.be.an('object')
-  // })
+  it('The array contains objects', function () {
+    expect(this.data[0]).to.be.an('object')
+  })
 
-  // it('The object has the expected properties', function () {
-  //   const obj = this.data[0]
+  it('The object has the expected properties', function () {
+    const obj = this.data[0]
 
-  //   expect(obj).to.have.property('name')
-  //   expect(obj).to.have.property('author')
-  //   expect(obj).to.have.property('time')
-  //   // expect(obj).to.have.nested.property('teams.home')
-  //   // expect(obj).to.have.nested.property('teams.away')
-  // })
+    expect(obj).to.have.property('name')
+    expect(obj).to.have.property('url')
+    expect(obj).to.have.property('user')
+    // expect(obj).to.have.nested.property('teams.away')
+  })
 })
+

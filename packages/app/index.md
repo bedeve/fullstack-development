@@ -20,3 +20,22 @@ This package holds the code of the app.
 1. create extension functionality (spotify, google music) 
 1. index user music folder
 1. create soulseek extension
+
+
+### Install
+
+In the packages/app folder run
+
+    npm install
+
+### Test
+
+To test all scrapers run 
+
+    npm run test
+
+To test a specific scraper
+
+    npm run test -- -g "Youtube" // or the part of the name that is in the describe(...) of the test file
+
+ 
