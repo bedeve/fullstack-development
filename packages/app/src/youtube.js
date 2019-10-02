@@ -1,11 +1,12 @@
 import puppeteer from 'puppeteer';
-const YOUTUBE_BASE_URL = 'https://soundcloud.com/discover';
+import { SSL_OP_EPHEMERAL_RSA } from 'constants';
+const YOUTUBE_BASE_URL = 'https://www.youtube.com';
 const youtubeSelectors = {
-  searchField: ".headerSearch__input",
-  searchListItem: ".sound__body",
-  itemName: ".sc-link-dark span",
-  itemUrl: ".sc-link-dark",
-  itemUser: ".soundTitle__usernameText",
+  searchField: "#search",
+  searchListItem: "#dismissable",
+  itemName: "#video-title",
+  itemUrl: "#thumbnail",
+  itemUser: "a.yt-simple-endpoint.style-scope.yt-formatted-string",
   itemImage: "",
   itemTags: "",
 }
@@ -17,11 +18,12 @@ export const searchYoutube = async (query) => {
   });
 
   const page = await browser.newPage();
-  await page.goto(YOUTUBE_BASE_URL);
-  await page.waitForSelector(youtubeSelectors.searchField);
+  await page.goto(YOUTUBE_BASE_URL, {timeout: 1000000});
+  await page.waitForSelector(youtubeSelectors.searchField, {timeout: 1000000});
   await page.click(youtubeSelectors.searchField);
-  await page.type(youtubeSelectors.searchField, query);
+  await page.type(youtubeSelectors.searchField, "HGEMONAS");
   await page.keyboard.press('Enter');
+  await page.waitFor(1000);
   await page.waitForSelector(youtubeSelectors.searchListItem);
 
   // to be able to pass variables in the function that will run in the browser
@@ -38,7 +40,7 @@ export const searchYoutube = async (query) => {
     const elements = Array.from(document.querySelectorAll(searchListItem));
     return elements.map(element => {
       return {
-        name: element.querySelector(itemName).textContent,
+        name: element.querySelector(itemName).title,
         url: element.querySelector(itemUrl).href,
         user: element.querySelector(itemUser).textContent,
         // img: element.querySelector(itemImage).src,
