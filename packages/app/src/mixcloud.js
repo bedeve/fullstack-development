@@ -1,11 +1,11 @@
 import puppeteer from 'puppeteer';
-const MIXCLOUD_BASE_URL = 'https://soundcloud.com/discover';
+const MIXCLOUD_BASE_URL = 'https://www.mixcloud.com/';
 const mixcloudSelectors = {
-  searchField: ".headerSearch__input",
-  searchListItem: ".sound__body",
-  itemName: ".sc-link-dark span",
-  itemUrl: ".sc-link-dark",
-  itemUser: ".soundTitle__usernameText",
+  searchField: ".search",
+  searchListItem: ".card.card-small",
+  itemName: "div>h1",
+  itemUrl: "div>h1>a",
+  itemUser: ".hovercard-anchor",
   itemImage: "",
   itemTags: "",
 }
@@ -20,8 +20,7 @@ export const searchMixcloud = async (query) => {
   await page.goto(MIXCLOUD_BASE_URL);
   await page.waitForSelector(mixcloudSelectors.searchField);
   await page.click(mixcloudSelectors.searchField);
-  await page.type(mixcloudSelectors.searchField, query);
-  await page.keyboard.press('Enter');
+  await page.type(mixcloudSelectors.searchField, 'lana del rey');
   await page.waitForSelector(mixcloudSelectors.searchListItem);
 
   // to be able to pass variables in the function that will run in the browser
