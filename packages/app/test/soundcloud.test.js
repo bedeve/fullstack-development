@@ -1,4 +1,4 @@
-const { searchSoundcloud } = require('../src/soundcloud')
+const { searchSoundcloud } = require('../src/scrapers/soundcloud')
 const { expect, assert } = require('chai')
 
 describe('searchSoundcloud', function () {

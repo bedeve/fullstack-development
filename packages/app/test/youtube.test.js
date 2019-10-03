@@ -1,4 +1,4 @@
-const { searchYoutube } = require('../src/youtube')
+const { searchYoutube } = require('../src/scrapers/youtube')
 const { expect, assert } = require('chai')
 
 describe('searchYoutube', function () {
