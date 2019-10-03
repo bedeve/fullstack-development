@@ -6,8 +6,8 @@ const mixcloudSelectors = {
   itemName: "div>h1",
   itemUrl: "div>h1>a",
   itemUser: ".hovercard-anchor",
-  itemImage: "",
-  itemTags: "",
+  itemImage: ".album-art",
+  itemTags: ".tag-dropdown-wrap",
 }
 export const searchMixcloud = async (query) => {
   /** create a browser instance, then a page instance with it */
@@ -40,8 +40,8 @@ export const searchMixcloud = async (query) => {
         name: element.querySelector(itemName).textContent,
         url: element.querySelector(itemUrl).href,
         user: element.querySelector(itemUser).textContent,
-        // img: element.querySelector(itemImage).src,
-        // tags: element.querySelector(itemTags).textContent,
+        //img: element.querySelector(itemImage).src,
+        //tags: element.querySelector(itemTags).textContent,
       };
     });
   }, mixcloudSelectors); // pass here any variables you need to access in the evaluate function
