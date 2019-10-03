@@ -3,7 +3,7 @@ import { SSL_OP_EPHEMERAL_RSA } from 'constants';
 const YOUTUBE_BASE_URL = 'https://www.youtube.com';
 const youtubeSelectors = {
   searchField: "#search",
-  searchListItem: "#dismissable",
+  searchListItem: "ytd-video-renderer",
   itemName: "#video-title",
   itemUrl: "#thumbnail",
   itemUser: "a.yt-simple-endpoint.style-scope.yt-formatted-string",
@@ -25,7 +25,7 @@ export const searchYoutube = async (query) => {
   await page.keyboard.press('Enter');
   await page.waitFor(1000);
   await page.waitForSelector(youtubeSelectors.searchListItem);
-
+  await scrollPageToBottom(page);
   // to be able to pass variables in the function that will run in the browser
   // we have to add the data after the function and also in the function
   // arguments
