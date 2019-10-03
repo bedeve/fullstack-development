@@ -1,0 +1,26 @@
+{
+  "name": "music-scrape",
+  "version": "0.0.2",
+  "description": "Music Site Scrapers",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "backpack && node build/main.js",
+    "test": "mocha --require babel-core/register --require babel-polyfill --no-timeouts --exit"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "puppeteer": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "backpack-core": "^0.7.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.4"
+  }
+}

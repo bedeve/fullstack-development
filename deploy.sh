@@ -4,8 +4,8 @@ git add *
 git commit -m \"update\" 
 git push 
 cd .. 
-git stash 
-git add docs 
-git commit -m \"update docs\" 
-git push
-git stash pop
+# git stash 
+# git add docs 
+# git commit -m \"update docs\" 
+# git push
+# git stash pop
