@@ -323,15 +323,40 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ### add remote
 
 ### push 
+Command : 
+  ```
+  git push 
 
-### pull
+  ```
 Examples:
+- Push commits made on your local branch to a remote repository.
+
+  ```
+  git push branch_name
+
+  ``` 
+### pull / fetch
+ Command : 
+  ```
+  git pull 
+
+  ```
+  Is used to update your current HEAD branch with the latest changes from the remote server.<br/>
+  This means that pull not only downloads new data but it also directly integrates it into your current working copy files.<br/>
+ Command : 
+  ```
+  git fetch 
+
+  ```
+  Downloads new data from a remote repository - but it doesn't integrate any of this new data into your working files.
+  Examples:
 - Fetch all Git branches
+  ```
+  git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+  git fetch --all
+  git pull --all
 
-        git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
-        git fetch --all
-        git pull --all
-
+  ```
 ### branch
 To create and checkout a new branch 
 
@@ -351,10 +376,11 @@ To merge from another branch
 ### Take code back in time (reset)
 Examples:
 - Reset local repository branch to be just like remote repository
+  ```
+  git fetch origin
+  git reset --hard origin/master
 
-        git fetch origin
-        git reset --hard origin/master
-
+  ```
 ## Project folders organizing
 
 ## Markdown
