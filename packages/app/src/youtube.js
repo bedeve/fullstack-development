@@ -7,7 +7,7 @@ const youtubeSelectors = {
   itemName: "#video-title",
   itemUrl: "#thumbnail",
   itemUser: "a.yt-simple-endpoint.style-scope.yt-formatted-string",
-  itemImage: "",
+  itemImage: "img#img.style-scope.yt-img-shadow",
   itemTags: "",
 }
 export const searchYoutube = async (query) => {
@@ -21,7 +21,7 @@ export const searchYoutube = async (query) => {
   await page.goto(YOUTUBE_BASE_URL, {timeout: 1000000});
   await page.waitForSelector(youtubeSelectors.searchField, {timeout: 1000000});
   await page.click(youtubeSelectors.searchField);
-  await page.type(youtubeSelectors.searchField, "HGEMONAS");
+  await page.type(youtubeSelectors.searchField, query);
   await page.keyboard.press('Enter');
   await page.waitFor(1000);
   await page.waitForSelector(youtubeSelectors.searchListItem);
@@ -43,7 +43,7 @@ export const searchYoutube = async (query) => {
         name: element.querySelector(itemName).title,
         url: element.querySelector(itemUrl).href,
         user: element.querySelector(itemUser).textContent,
-        // img: element.querySelector(itemImage).src,
+        img: element.querySelector(itemImage).src,
         // tags: element.querySelector(itemTags).textContent,
       };
     });
