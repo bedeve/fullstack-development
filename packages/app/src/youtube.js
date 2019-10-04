@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import { SSL_OP_EPHEMERAL_RSA } from 'constants';
+
 const YOUTUBE_BASE_URL = 'https://www.youtube.com';
 const youtubeSelectors = {
   searchField: "#search",
@@ -18,6 +19,7 @@ export const searchYoutube = async (query) => {
   });
 
   const page = await browser.newPage();
+  page.setViewport({ width: 1280, height: 926 });
   await page.goto(YOUTUBE_BASE_URL, {timeout: 1000000});
   await page.waitForSelector(youtubeSelectors.searchField, {timeout: 1000000});
   await page.click(youtubeSelectors.searchField);
@@ -25,7 +27,27 @@ export const searchYoutube = async (query) => {
   await page.keyboard.press('Enter');
   await page.waitFor(1000);
   await page.waitForSelector(youtubeSelectors.searchListItem);
-  await scrollPageToBottom(page);
+  // var i=0;
+//   do {
+//     await page.evaluate('window.scrollBy(0, 926)');
+//     await page.waitFor(1000);
+//     i++;
+// } while (i <10 );
+  let length = 0;
+  let previousHeight = 0;
+  let noMoreResults = 0;
+  while (length < 100 && noMoreResults!==1) {
+    length = await page.evaluate(`document.querySelectorAll("${youtubeSelectors.searchListItem}").length`);
+    previousHeight = await page.evaluate('document.querySelector("ytd-app").scrollHeight');
+    await page.evaluate('window.scrollTo(0, document.querySelector("ytd-app").scrollHeight)');
+    await page.waitForFunction(`document.querySelector("ytd-app").scrollHeight > ${previousHeight}`);
+    await page.waitFor(1000);
+
+    noMoreResults = await page.evaluate('document.querySelectorAll("#contents ytd-message-renderer").length')
+  }
+  if(noMoreResults === 1){
+    console.log("Reached no more results")
+  }
   // to be able to pass variables in the function that will run in the browser
   // we have to add the data after the function and also in the function
   // arguments
