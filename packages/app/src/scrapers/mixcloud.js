@@ -20,7 +20,7 @@ export const searchMixcloud = async (query) => {
   await page.goto(MIXCLOUD_BASE_URL);
   await page.waitForSelector(mixcloudSelectors.searchField);
   await page.click(mixcloudSelectors.searchField);
-  await page.type(mixcloudSelectors.searchField, 'lana del rey');
+  await page.type(mixcloudSelectors.searchField, query);
   await page.waitForSelector(mixcloudSelectors.searchListItem);
 
   // to be able to pass variables in the function that will run in the browser
