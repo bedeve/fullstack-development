@@ -13,7 +13,7 @@ export const searchSoundcloud = async (query) => {
   /** create a browser instance, then a page instance with it */
   
   const browser = await puppeteer.launch({
-    headless: false
+    headless: true
   });
 
   const page = await browser.newPage();
@@ -46,5 +46,6 @@ export const searchSoundcloud = async (query) => {
       };
     });
   }, soundCloudSelectors); // pass here any variables you need to access in the evaluate function
+  await browser.close()
   return results;
 };

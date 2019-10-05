@@ -14,7 +14,7 @@ export const searchYoutube = async (query) => {
   /** create a browser instance, then a page instance with it */
   
   const browser = await puppeteer.launch({
-    headless: false
+    headless: true
   });
 
   const page = await browser.newPage();
