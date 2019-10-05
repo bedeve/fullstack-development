@@ -1,15 +1,15 @@
 import puppeteer from 'puppeteer';
-const YOUTUBE_BASE_URL = 'https://soundcloud.com/discover';
-const youtubeSelectors = {
-  searchField: ".headerSearch__input",
-  searchListItem: ".sound__body",
-  itemName: ".sc-link-dark span",
-  itemUrl: ".sc-link-dark",
-  itemUser: ".soundTitle__usernameText",
-  itemImage: "",
-  itemTags: "",
+const MIXCLOUD_BASE_URL = 'https://www.mixcloud.com/';
+const mixcloudSelectors = {
+  searchField: ".search",
+  searchListItem: ".card.card-small",
+  itemName: "div>h1",
+  itemUrl: "div>h1>a",
+  itemUser: ".hovercard-anchor",
+  itemImage: ".album-art",
+  itemTags: ".tag-dropdown-wrap",
 }
-export const searchYoutube = async (query) => {
+export const searchMixcloud = async (query) => {
   /** create a browser instance, then a page instance with it */
   
   const browser = await puppeteer.launch({
@@ -17,12 +17,11 @@ export const searchYoutube = async (query) => {
   });
 
   const page = await browser.newPage();
-  await page.goto(YOUTUBE_BASE_URL);
-  await page.waitForSelector(youtubeSelectors.searchField);
-  await page.click(youtubeSelectors.searchField);
-  await page.type(youtubeSelectors.searchField, query);
-  await page.keyboard.press('Enter');
-  await page.waitForSelector(youtubeSelectors.searchListItem);
+  await page.goto(MIXCLOUD_BASE_URL);
+  await page.waitForSelector(mixcloudSelectors.searchField);
+  await page.click(mixcloudSelectors.searchField);
+  await page.type(mixcloudSelectors.searchField, 'lana del rey');
+  await page.waitForSelector(mixcloudSelectors.searchListItem);
 
   // to be able to pass variables in the function that will run in the browser
   // we have to add the data after the function and also in the function
@@ -41,10 +40,10 @@ export const searchYoutube = async (query) => {
         name: element.querySelector(itemName).textContent,
         url: element.querySelector(itemUrl).href,
         user: element.querySelector(itemUser).textContent,
-        // img: element.querySelector(itemImage).src,
-        // tags: element.querySelector(itemTags).textContent,
+        //img: element.querySelector(itemImage).src,
+        //tags: element.querySelector(itemTags).textContent,
       };
     });
-  }, youtubeSelectors); // pass here any variables you need to access in the evaluate function
+  }, mixcloudSelectors); // pass here any variables you need to access in the evaluate function
   return results;
 };

@@ -1,4 +1,4 @@
-const { searchMixcloud } = require('../src/mixcloud')
+const { searchMixcloud } = require('../src/scrapers/mixcloud')
 const { expect, assert } = require('chai')
 
 describe('searchMixcloud', function () {
