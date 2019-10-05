@@ -1,4 +1,3 @@
- 
 import mongoose from 'mongoose'
 const SongSchema = new mongoose.Schema({
   name: {
@@ -10,9 +9,9 @@ const SongSchema = new mongoose.Schema({
     data: Buffer,
     contentType: String
   },
-  description: {
+  url: {
     type: String,
-    trim: true
+    unique: true
   },
   updated: Date,
   created: {
