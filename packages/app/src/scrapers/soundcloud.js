@@ -17,7 +17,7 @@ export const searchSoundcloud = async (query) => {
   });
 
   const page = await browser.newPage();
-  await page.goto(SOUNDCLOUD_BASE_URL);
+  await page.goto(SOUNDCLOUD_BASE_URL, {timeout: 100000});
   await page.waitForSelector(soundCloudSelectors.searchField);
   await page.click(soundCloudSelectors.searchField);
   await page.type(soundCloudSelectors.searchField, query);
