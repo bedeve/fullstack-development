@@ -1,5 +1,4 @@
 import puppeteer from 'puppeteer';
-import { SSL_OP_EPHEMERAL_RSA } from 'constants';
 
 const YOUTUBE_BASE_URL = 'https://www.youtube.com';
 const youtubeSelectors = {
@@ -27,12 +26,6 @@ export const searchYoutube = async (query) => {
   await page.keyboard.press('Enter');
   await page.waitFor(1000);
   await page.waitForSelector(youtubeSelectors.searchListItem);
-  // var i=0;
-//   do {
-//     await page.evaluate('window.scrollBy(0, 926)');
-//     await page.waitFor(1000);
-//     i++;
-// } while (i <10 );
   let length = 0;
   let previousHeight = 0;
   let noMoreResults = 0;
