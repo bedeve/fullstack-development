@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import {scrape} from '../utils/browser/common_scraper'
 const SOUNDCLOUD_BASE_URL = 'https://soundcloud.com/discover';
 const soundCloudSelectors = {
   searchField: ".headerSearch__input",
@@ -27,25 +28,7 @@ export const searchSoundcloud = async (query) => {
   // to be able to pass variables in the function that will run in the browser
   // we have to add the data after the function and also in the function
   // arguments
-  const results = await page.evaluate(({
-    searchListItem, 
-    itemName, 
-    itemUrl, 
-    itemUser, 
-    itemImage, 
-    itemTags
-  }) => {
-    const elements = Array.from(document.querySelectorAll(searchListItem));
-    return elements.map(element => {
-      return {
-        name: element.querySelector(itemName).textContent,
-        url: element.querySelector(itemUrl).href,
-        user: element.querySelector(itemUser).textContent,
-        // img: element.querySelector(itemImage).src,
-        // tags: element.querySelector(itemTags).textContent,
-      };
-    });
-  }, soundCloudSelectors); // pass here any variables you need to access in the evaluate function
+  const results = await page.evaluate(scrape , soundCloudSelectors); // pass here any variables you need to access in the evaluate function
   await browser.close()
   return results;
 };
