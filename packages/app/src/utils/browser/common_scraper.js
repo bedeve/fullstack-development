@@ -12,7 +12,7 @@ const scrape = ({
       name: element.querySelector(itemName).title,
       url: element.querySelector(itemUrl).href,
       user: element.querySelector(itemUser).textContent,
-      img: element.querySelector(itemImage).src,
+      // img: element.querySelector(itemImage).src,
       // tags: element.querySelector(itemTags).textContent,
     };
   });
