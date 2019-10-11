@@ -29,15 +29,15 @@ export const searchYoutube = async (query) => {
   let length = 0;
   let previousHeight = 0;
   let noMoreResults = 0;
-  while (length < 100 && noMoreResults!==1) {
-    length = await page.evaluate(`document.querySelectorAll("${youtubeSelectors.searchListItem}").length`);
-    previousHeight = await page.evaluate('document.querySelector("ytd-app").scrollHeight');
-    await page.evaluate('window.scrollTo(0, document.querySelector("ytd-app").scrollHeight)');
-    await page.waitForFunction(`document.querySelector("ytd-app").scrollHeight > ${previousHeight}`);
-    await page.waitFor(1000);
+  // while (length < 100 && noMoreResults!==1) {
+  //   length = await page.evaluate(`document.querySelectorAll("${youtubeSelectors.searchListItem}").length`);
+  //   previousHeight = await page.evaluate('document.querySelector("ytd-app").scrollHeight');
+  //   await page.evaluate('window.scrollTo(0, document.querySelector("ytd-app").scrollHeight)');
+  //   await page.waitForFunction(`document.querySelector("ytd-app").scrollHeight > ${previousHeight}`);
+  //   await page.waitFor(1000);
 
-    noMoreResults = await page.evaluate('document.querySelectorAll("#contents ytd-message-renderer").length')
-  }
+  //   noMoreResults = await page.evaluate('document.querySelectorAll("#contents ytd-message-renderer").length')
+  // }
   if(noMoreResults === 1){
     console.log("Reached no more results")
   }
