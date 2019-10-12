@@ -11,13 +11,11 @@ const SongSchema = new mongoose.Schema({
   },
   url: {
     type: String,
-    unique: true
   },
-  updated: Date,
   created: {
     type: Date,
     default: Date.now
-  },
+  }
 })
 
 export default mongoose.model('Song', SongSchema)
