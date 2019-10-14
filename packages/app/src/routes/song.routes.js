@@ -6,6 +6,6 @@ const router = express.Router()
 router.route('/api/songs')
   .get(
     search
-    )
+  )
 
   export default router

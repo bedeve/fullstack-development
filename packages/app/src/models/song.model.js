@@ -6,8 +6,7 @@ const SongSchema = new mongoose.Schema({
     required: 'Name is required'
   },
   image: {
-    data: Buffer,
-    contentType: String
+    type: String
   },
   url: {
     type: String,
@@ -17,5 +16,6 @@ const SongSchema = new mongoose.Schema({
     default: Date.now
   }
 })
+
 
 export default mongoose.model('Song', SongSchema)
