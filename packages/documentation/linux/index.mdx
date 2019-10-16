@@ -265,14 +265,31 @@ for a command.
 Examples:
 
   1.  Add all files in the packages/linux directory
-
-        git add packages/linux/*    
-
+      ```
+      git add packages/linux/*    
+        
+      ```
   2. Add all files ending with  .js  in the packages/linux directory
+     ```
+     git add packages/linux/*.js 
 
-        git add packages/linux/*.js 
-
+     ```
 ### diff 
+Command:
+ ```
+ git diff
+ ```
+Examples 
+- Find the difference between two branches of a git repository.
+  ```
+  git diff branch_1..branch_2
+  
+  ```
+- Get the difference between two commits
+  ```
+  git diff commit_1.._commit_2
+
+  ```
 
 ### commit
 
