@@ -358,9 +358,54 @@ Examples:
 
   ```
 ### branch
-To create and checkout a new branch 
+Command : 
+  ```
+  git branch 
+
+  ```
+Examples:
+- Displays all available local git branches
+  ```
+  git branch 
+
+  ```
+- Displays all git branches
+  ```
+  git branch  -a
+
+  ```
+- Displays remote  git branches
+  ```
+  git branch -r
+
+  ```
+- Displays local git branches
+  ```
+  git branch -l
+
+  ```
+- Create new branch
+  ```
+  git branch branch_name
+
+  ```
+- Delete branch
+  ```
+  git branch -d branch_name
+ 
+  ```
+- To create and checkout a new branch 
 
         git checkout -b new_branch_name
+- Displays the merged branches 
+
+        git branch --merged     
+
+- Displays the no-merged branches 
+
+        git branch --no-merged
+
+        
 
 ### stash
 
