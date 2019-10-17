@@ -6,36 +6,46 @@ import {searchYoutube} from "../scrapers/youtube"
 
 export const search = async (req, res) => {
   const searchQuery = req.query.search_query
-  console.log("TCL: search -> searchQuery", searchQuery)
-  const cachedResultsCount = await Search.count({ // check the deprecation warning
+  const cachedResultsCount = await Search.countDocuments({ // check the deprecation warning
     query: searchQuery
   })
   if(cachedResultsCount === 0){
+    console.group("scrape youtube")
+    console.log("start")
     const youtubeResults = await searchYoutube(searchQuery)
-      .catch(err=>{
-        console.error("Youtube scraper error")
-        return []
-      })
+    .catch(err=>{
+      console.log("error")
+      return []
+    })
+    console.log("end")
+    console.groupEnd()
+    console.group("scrape soundcloud")
+    console.log("start")
     const soundcloudResults = await searchSoundcloud(searchQuery)
-      .catch(err=>{
-        console.error("Soundcloud scraper error")
-        return []
-      })
+    .catch((err)=>{
+      console.log("error")
+      return []
+    })
+    console.log("end")
+    console.groupEnd()
     const allResults = youtubeResults.concat(soundcloudResults)
     const songs = await Song.create(
       allResults
     )
+    
     await Search.create({
         query: searchQuery, 
-        results: songs?songs.map(song=>song._id):[]  
+        results: songs?
+                  songs.map(song=>song._id):
+                  [] 
     })
   } 
-  const storedSongs = await Search.find({
+  const storedSearch = await Search.findOne({
     query: searchQuery
   }).populate(
-    "results", "name url image"
+    "results", "name url"
   )
-  res.json(storedSongs)
+  res.json(storedSearch)
 }
 
 const removeAllSearches = async () => {
