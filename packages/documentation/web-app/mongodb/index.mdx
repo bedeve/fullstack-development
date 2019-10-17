@@ -1,18 +1,74 @@
 ---
 name: 2.4 Mongodb
 ---
-<!-- 
- - Install Liveshare plugin and click on the link on slack
- - Type your notes 
- -->
 
 ## Intro
 
+Install Mongoose
+```
+npm install mongoose
+
+```
 ## ORM/ODM
-
+Two types of database set ups : 
+- ORM (Object Relation Mapping) : maps an object with a relational world, it basically converts data between incompatible types in object oriented programming languages.ORM wraps the implementation specific details of storage drivers in an API (application program interface), and maps the relational fields to an object members. For example if I have a table of employees, it is mapped to a single object for all employees, with various methods associated with it.
+    - The Object part is the one you use with your programming language 
+    - The Relational part is a Relational Database Manager System ( A database that is ) there are other types of databases but the most popular is relational ( you know tables, columns, pk fk etc eg Oracle MySQL, MS-SQL )
+    - The Mapping part is where you do a bridge between your objects and your tables.
+- ODM (Object Document Mapping) :  maps objects with a Document Database <br/>
+The main difference is that ORM is for MySQL databases, while ODM does the mapping for document representation of data.
 ## Mongoose ODM
-
+Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js.
+ It manages relationships between data, provides schema validation,
+  and is used to translate between objects in code and the representation of those objects in MongoDB.
+  MongoDB is a schema-less NoSQL document database. It means you can store JSON documents in it, and the structure of these documents can vary
 ### Schema
+Schemas define the structure of your document and casting of properties, they also define document instance methods, static Model methods, compound indexes, and document lifecycle hooks called middleware.<br/>
+
+The following Schema Types are permitted:
+- Array
+- Boolean
+- Buffer
+- Date
+- Mixed (A generic / flexible data type)
+- Number
+- ObjectId
+- String
+
+Example :
+
+```
+var schema = new Schema({
+  name:    String,
+  binary:  Buffer,
+  living:  Boolean,
+  updated: { type: Date, default: Date.now },
+  age:     { type: Number, min: 18, max: 65 },
+  mixed:   Schema.Types.Mixed,
+  _someId: Schema.Types.ObjectId,
+  decimal: Schema.Types.Decimal128,
+  array: [],
+  ofString: [String],
+  ofNumber: [Number],
+  ofDates: [Date],
+  ofBuffer: [Buffer],
+  ofBoolean: [Boolean],
+  ofMixed: [Schema.Types.Mixed],
+  ofObjectId: [Schema.Types.ObjectId],
+  ofArrays: [[]],
+  ofArrayOfNumbers: [[Number]],
+  nested: {
+    stuff: { type: String, lowercase: true, trim: true }
+  },
+  map: Map,
+  mapOfString: {
+    type: Map,
+    of: String
+  }
+})
+
+```
+
 
 ### Queries
 
