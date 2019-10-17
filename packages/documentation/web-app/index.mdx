@@ -17,7 +17,47 @@ Model driven development is way to architect applications.
 
 #### validations
 
+#### controllers
+
+In a MVC architecture design pattern the controllers work as follows.
+Within the controller action, two main things typically occur: the models are used to retrieve all of the necessary data from a database; and that data is passed to a view, which renders the requested page. The data retrieved via the models is generally added to a data structure (like an array), and that structure is what’s sent to the view.
+
+
+
 #### api routes
+
+The server runs an app that contains logic about how to respond to various requests based on the HTTP verb and the Uniform Resource Identifier (URI). The pair of an HTTP verb and a URI is called a route and matching them based on a request is called routing.
+
+##### HTTP request methods
+
+HTTP defines a set of *** request methods *** to indicate the desired action to be performed for a given resource. Although they can also be nouns, these request methods are sometimes referred as HTTP verbs. Each of them implements a different semantic, but some common features are shared by a group of them: e.g. a request method can be safe, idempotent, or cacheable.
+
+*     GET
+
+ The ```GET``` method requests a representation of the specified resource. Requests using GET should only retrieve data.
+
+
+*     POST
+
+    The ```POST``` method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
+
+
+*     PUT
+
+    The ```PUT``` method replaces all current representations of the target resource with the request payload.
+
+
+*     DELETE
+
+    The ```DELETE``` method deletes the specified resource.
+
+
+
+[More...](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+
+##### URI (Uniform Resource Identifier)
+
+A URI (Uniform Resource Identifier) is a string that refers to a resource. The most common are URLs, which identify the resource by giving its location on the Web.
 
 ### frontend
 
