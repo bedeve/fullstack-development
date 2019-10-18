@@ -19,14 +19,11 @@ Model driven development is way to architect applications.
 
 #### controllers
 
-In a MVC architecture design pattern the controllers work as follows.
-Within the controller action, two main things typically occur: the models are used to retrieve all of the necessary data from a database; and that data is passed to a view, which renders the requested page. The data retrieved via the models is generally added to a data structure (like an array), and that structure is what’s sent to the view.
-
-
+Controllers are functions used to get the requested data from the models, create an HTML page displaying the data, and return it to the user to view in the browser.
 
 #### api routes
 
-The server runs an app that contains logic about how to respond to various requests based on the HTTP verb and the Uniform Resource Identifier (URI). The pair of an HTTP verb and a URI is called a route and matching them based on a request is called routing.
+A route is a section of Express code that associates an HTTP verb (GET, POST, PUT, DELETE, etc.), an URL path/pattern, and a function that is called to handle that pattern.
 
 ##### HTTP request methods
 
@@ -58,6 +55,23 @@ HTTP defines a set of *** request methods *** to indicate the desired action to 
 ##### URI (Uniform Resource Identifier)
 
 A URI (Uniform Resource Identifier) is a string that refers to a resource. The most common are URLs, which identify the resource by giving its location on the Web.
+
+##### Create a new route and relate it to a controller (using the express.js framework)
+
+To create a new route we call the *route* method, defining the path as in the following example:
+
+    router.route(`/api/songs`)
+
+inside the method, we use a request method (e.g. a **get** request) in which which then calls the main function of the controller
+
+example: 
+
+    .get(
+         search
+        
+    )
+
+
 
 ### frontend
 
