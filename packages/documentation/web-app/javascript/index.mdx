@@ -25,6 +25,7 @@ Modules can load each other and use special directives ```export``` and ```impor
 * *simple use*
 
     if we have a file ```helloWorld.js``` exporting a function: 
+    
 ```js
 {
   alert (`Hello, $ {user}!`);
@@ -32,6 +33,7 @@ Modules can load each other and use special directives ```export``` and ```impor
 ```            
 
     ... then another file may import and use it:
+    
 ```js
 import {helloWorld} from './helloWorld.js'; 
 alert(helloWorld); //function..
