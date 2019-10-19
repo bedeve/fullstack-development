@@ -418,9 +418,34 @@ To merge from another branch
 
 
         git merge another_branch_name
-   
+
 
 ### resolve conflicts
+
+
+### git move
+command: 
+
+        git mv <source> <destination>
+
+* force renaming or moving of a file even if the target exists
+
+        git mv -f <source> <destination>
+
+* Skip move or rename actions which would lead to an error condition. An error happens when a source is neither existing nor controlled by Git, or when it would overwrite an existing file unless -f is given.
+
+        git mv -k <source> <destination>
+
+
+* Do nothing; only show what would happen
+
+        git mv -n <source> <destination>
+
+* Report the names of files as they are moved.
+
+        git mv -v <source> <destination>
+     
+
 
 ### Take code back in time (reset)
 Examples:
