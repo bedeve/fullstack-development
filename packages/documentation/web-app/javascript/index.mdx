@@ -1,3 +1,38 @@
 ---
 name: 2.3 Javascript
----
+
+
+
+
+
+
+## Modules 
+
+As our application grows bigger, we want to split it into multiple files, so called “modules”. A module usually contains a class or a library of functions.
+A module is just a file. One script is one module. 
+
+Modules can load each other and use special directives ```export``` and ```import``` to interchange functionality, call functions of one module from another one:
+
+*  ```export``` keyword labels variables and functions that should be accessible from outside the current module.
+
+
+*  ```import``` allows to import functionality from other modules.
+
+
+
+### Examples using import and export 
+
+* *simple use*
+
+    if we have a file ```helloWorld.js``` exporting a function: 
+
+            export function helloWorld(user) 
+            {
+                alert (`Hello, $ {user}!`);
+            }
+
+    ... then another file may import and use it:
+
+            import {helloWorld} from './helloWorld.js'; 
+            alert(helloWorld); //function..
+            helloWorld('Bob'); // Hello Bob!
