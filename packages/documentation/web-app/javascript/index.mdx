@@ -5,7 +5,8 @@ name: 2.3 Javascript
 - const: (constant) Can't mutate the content of the variable
 
   Examples :
-
+  
+    ````
     const name = 'Vasilis'
     name= 'Kostas'
     console.log(name) //log: error
@@ -16,27 +17,29 @@ name: 2.3 Javascript
     console.log("kids length", kids.length);
 
     console.log(typeof(kids)) //log: object
-
+    ````
 - let :  Can mutate the value of the variable
 
   Examples :
 
+    ````
     let name = 'Maria'
     name = 'Nikos'
     console.log(name) // Nikos
-
 
     let age=0
     console.log(age)
     age++ // age= age+1
     age+=2 // age = age + 2
-
+    ````
 - var : (deprecated) Var has a global/window scope so we shouldn't use it! 
 
-##### Checks
+#### Checks
 - .some() : return true/false, checks if any of an element in an array! past a test, stops to iterate when finds at least one instance    
   
-  Example: 
+  Example:
+
+    ````
     import React from "react";
     import ReactDOM from "react-dom";
     import data from "./data";
@@ -50,32 +53,39 @@ name: 2.3 Javascript
       return false;
     });
     console.log(hasKylie);
-
+    ````
 -  .length() :  return the length if an array
    
    Example:
+
+   ````
     let arr = [1,2,3,4,5,6]
     console/log(arr.length); // 6 
-
+    ````
 - .filter() : returns a new array that includes the items that return true at the callback function.
 
 
 - .includes() : checks if the input argument exists inside an array 
    
-   Example :
+   Example:
+
+    ````
     var str = "Hello world, welcome to the universe.";
     var n = str.includes("world");
-
+    ````
 - .indexOf() : returns the index of a value array. Starts  from zero 
   
-  Example :
+  Example: 
+
+   ````
    var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 
    console.log(beasts.indexOf('bison')); // expected output: 1  
-
+  ```` 
 - Array.isArray() : check if it is an array
 
 - .typeOf() : check type of variable / for array and objects and null returns object 
+  
   Examples
 
    ```js
