@@ -35,7 +35,8 @@ name: 2.3 Javascript
 
 ##### Checks
 - .some() : return true/false, checks if any of an element in an array! past a test, stops to iterate when finds at least one instance    
-    Example: 
+  
+  Example: 
     import React from "react";
     import ReactDOM from "react-dom";
     import data from "./data";
@@ -50,56 +51,69 @@ name: 2.3 Javascript
     });
     console.log(hasKylie);
 
--  .length() - return the length if an array
+-  .length() :  return the length if an array
+   
+   Example:
+    let arr = [1,2,3,4,5,6]
+    console/log(arr.length); // 6 
 
-- .filter()- returns a new array that includes the items that return true at the callback function.
+- .filter() : returns a new array that includes the items that return true at the callback function.
 
 
-- .includes() - checks if the input argument exists inside an array 
+- .includes() : checks if the input argument exists inside an array 
+   
+   Example :
+    var str = "Hello world, welcome to the universe.";
+    var n = str.includes("world");
 
-- Array.isArray() - check if it is an array
+- .indexOf() : returns the index of a value array. Starts  from zero 
+  
+  Example :
+   var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 
-- .indexOf() - returns the index of a value array. Starts  from zero 
+   console.log(beasts.indexOf('bison')); // expected output: 1  
 
-- .typeOf() - check type of variable
-            -  for array and objects and null returns object 
-Examples
+- Array.isArray() : check if it is an array
 
-```js
-const bully = {};
+- .typeOf() : check type of variable / for array and objects and null returns object 
+  Examples
 
-if (typeof bully === "object") {
-  if (Array.isArray(bully)) {
-    console.log("array");
-  } else if (typeof bully === null) {
-    console.log(null);
+   ```js
+  const bully = {};
+
+  if (typeof bully === "object") {
+    if (Array.isArray(bully)) {
+      console.log("array");
+    } else if (typeof bully === null) {
+      console.log(null);
+      }
+      else{
+      console.log("object");
     }
-    else{
-    console.log("object");
+  } else {
+    if (typeof bully === "string") {
+      console.log("string");
+    } else if (typeof bully === "number") {
+      console.log("number");
+    }
   }
-} else {
-  if (typeof bully === "string") {
-    console.log("string");
-  } else if (typeof bully === "number") {
-    console.log("number");
-  }
-}
-```
+  ```
+
 
 ### undefined vs null 
 
-undefined : never defined
-null : on purpose null 
+- undefined : never defined
+- null : on purpose null 
 
-```
-let nothing;
-console.log(nothing)// undefined
-```
-```
-const aBasicArray = ["Vas", "Ad", "El", "Ko", "Di", "Su", "Ma", "Di"];
+Example :
 
-console.log(aBasicArray.includes("Bob"));
-console.log(aBasicArray.includes("Vas"));
+  let nothing;
+  console.log(nothing)// undefined
 
-console.log(aBasicArray.indexOf("Di"));
-```
+
+  const aBasicArray = ["Vas", "Ad", "El", "Ko", "Di", "Su", "Ma", "Di"];
+
+  console.log(aBasicArray.includes("Bob"));
+  console.log(aBasicArray.includes("Vas"));
+
+  console.log(aBasicArray.indexOf("Di"));
