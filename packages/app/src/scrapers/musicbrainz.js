@@ -4,12 +4,20 @@ const MUSICBRAINZ_BASE_URL = 'https://musicbrainz.org';
 const musicBrainzSelectors = {
   searchField: "#headerid-query",
   searchListItem: "#content > table > tbody > tr:first-child",
-  itemName: "#content > table > tbody > tr:first-child > td:first-child > a > bdi"    ,
-  itemUrl: "#content > table > tbody > tr:first-child > td:first-child > a"
+  properties: {
+    name: {
+      selector: "#content > table > tbody > tr:nth-child(1) > td:nth-child(1) > a ",
+      attribute: "title"
+    },
+    url: {
+      selector: "#content > table > tbody > tr:first-child > td:first-child > a",
+      attribute: "href"
+    }
+  }
 }
 export const searchMusicBrainz = async (query) => {
   /** create a browser instance, then a page instance with it */
-  
+
   const browser = await puppeteer.launch({
     headless: false
   });
@@ -25,7 +33,7 @@ export const searchMusicBrainz = async (query) => {
   // to be able to pass variables in the function that will run in the browser
   // we have to add the data after the function and also in the function
   // arguments
-  const results = await page.evaluate(scrape , musicBrainzSelectors ); // pass here any variables you need to access in the evaluate function
+  const results = await page.evaluate(scrape, musicBrainzSelectors); // pass here any variables you need to access in the evaluate function
   await browser.close()
   return results;
 };

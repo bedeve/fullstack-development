@@ -1,20 +1,14 @@
-const scrape = ({
-  searchListItem, 
-  itemName, 
-  itemUrl, 
-  itemUser, 
-  itemImage, 
-  itemTags
-}) => {
-  const elements = Array.from(document.querySelectorAll(searchListItem));
+const scrape = (props) => {
+   
+  const elements = Array.from(document.querySelectorAll(props.searchListItem));
   return elements.map(element => {
-    return {
-      name: element.querySelector(itemName).title,
-      url: element.querySelector(itemUrl).href,
-      user: element.querySelector(itemUser).textContent,
-      // img: element.querySelector(itemImage).src,
-      // tags: element.querySelector(itemTags).textContent,
-    };
+    const result = {}
+    for(let key  in props.properties){
+      const {selector, attribute} = props.properties[key]
+      result[key] = element.querySelector(selector)[attribute]
+    }
+
+    return result;
   });
 }
 
