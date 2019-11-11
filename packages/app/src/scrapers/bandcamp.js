@@ -4,20 +4,20 @@ const BANDCAMP_BASE_URL = 'https://bandcamp.com/';
 
 
 const bandCampSelectors = {
-  searchField: "input.you-autocomplete-me dismiss-tooltip-alt",
-  searchListItem: "#pgBd > div.search > div.leftcol > div > ul > li:nth-child(1)",
+  searchField: ".you-autocomplete-me.dismiss-tooltip-alt",
+  searchListItem: ".result-info",
   properties: {
     name: {
-      selector: "#pgBd > div.search > div.leftcol > div > ul > li:nth-child(2) > div > div.heading > a ",
-      attribute: "text.Content"
+      selector: ".result-info>div.heading>a",
+      attribute: "textContent"
     },
     url: {
-      selector: "#pgBd > div.search > div.leftcol > div > ul > li:nth-child(1) > div > div.heading > a",
+      selector: ".result-info>div.heading>a",
       attribute: "href"
     }
   }
 }
-export const searchMusicBrainz = async (query) => {
+export const searchBandCamp = async (query) => {
   /** create a browser instance, then a page instance with it */
 
   const browser = await puppeteer.launch({
