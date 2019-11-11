@@ -5,14 +5,17 @@ const BANDCAMP_BASE_URL = 'https://bandcamp.com/';
 
 const bandCampSelectors = {
   searchField: ".you-autocomplete-me.dismiss-tooltip-alt",
-  searchListItem: ".result-info",
+  searchListItem:"#pgBd > div.search > div.leftcol > div > ul > li:nth-child(1) > div",
+  //searchListItem: ".result-info",
   properties: {
     name: {
-      selector: ".result-info>div.heading>a",
+      selector:"#pgBd > div.search > div.leftcol > div > ul > li:nth-child(1) > div > div.heading > a",
+      //selector: ".result-info>div.heading>a",
       attribute: "textContent"
     },
     url: {
-      selector: ".result-info>div.heading>a",
+      selector:"#pgBd > div.search > div.leftcol > div > ul > li:nth-child(1) > div > div.heading > a",
+      //selector: ".result-info>div.heading>a",
       attribute: "href"
     }
   }
