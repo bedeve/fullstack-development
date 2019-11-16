@@ -1,18 +1,18 @@
-const { searchBandCamp } = require('../src/scrapers/bandcamp')
+const { searchSpotify } = require('../src/scrapers/spotify')
 const { expect, assert } = require('chai')
 
-describe('searchBandCamp', function () {
+describe('searchSpotify', function () {
   before(function (done) {
     /** extend timeout because puppeteer takes a while */
     this.timeout(100000)
-    searchBandCamp("bob marley")
+    searchSpotify("bob marley")
     .then(res => {
       this.data = res
       console.log(this.data)
       done()
     }).catch(err => {
       console.error("Error: ", err)
-      assert.fail(0, 1, 'Failed to fetch bandcamp artists. URL could be broken or website is down.')
+      assert.fail(0, 1, 'Failed to fetch spotify artists. URL could be broken or website is down.')
     })
   })
 
