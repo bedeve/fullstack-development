@@ -19,7 +19,7 @@ export function commonStaticScraper($, selectors, scrapeUrl) {
         default:
           value = element.attr(property.attribute);
       }
-      result[propertyKey] = value;
+      result[propertyKey] = value.trim();
     }
     results.push(result);
   });

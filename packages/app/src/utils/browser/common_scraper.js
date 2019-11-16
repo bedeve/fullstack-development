@@ -5,7 +5,7 @@ const scrape = (props) => {
     const result = {}
     for(let key  in props.properties){
       const {selector, attribute} = props.properties[key]
-      result[key] = element.querySelector(selector)[attribute]
+      result[key] = element.querySelector(selector)[attribute].trim()
     }
 
     return result;

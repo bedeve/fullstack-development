@@ -1,14 +1,14 @@
 import Artist from '../models/artist.model'
-import Search from '../models/search.model'
 import {searchBandCamp} from "../scrapers/bandcamp"
 import {searchMusicBrainz} from "../scrapers/musicbrainz"
 import {searchSpotify} from "../scrapers/spotify"
 
 
 export const search = async (req, res) => {
-  const searchQuery = req.query.search_query
-  const cachedResultsCount = await Search.countDocuments({ // check the deprecation warning
-    query: searchQuery
+  const searchQuery = req.query.search_query.toLowerCase()
+
+  const cachedResultsCount = await Artist.countDocuments({ // check the deprecation warning
+    name: searchQuery
   })
   if(cachedResultsCount === 0){
     console.group("scrape musicbrainz")
@@ -29,24 +29,35 @@ export const search = async (req, res) => {
     })
     console.log("end")
     console.groupEnd()
-    const allResults = musicbrainzResults.concat(bandcampResults)
-    const artists = await Artist.create(
-      allResults
+    console.log(bandcampResults, musicbrainzResults)
+    const artistDocument = {
+      name: searchQuery,
+      bandcampUrl: bandcampResults[0].url,
+      musicbrainzUrl: musicbrainzResults[0].url,
+      searches: storedSearch
+    }
+    const artist = await Artist.create(
+      artistDocument
     )
+
+    res.json(artist)  
+  }
+  // const storedArtist = await Artist.findOne({
+  //   name: searchQuery
+  // }).populate(
+  //   "results", "name url"
+  // )
+  //   const allResults = musicbrainzResults.concat(bandcampResults)
     
-    await Search.create({
-        query: searchQuery, 
-        results: artists?
-                  artists.map(artist=>artist._id):
-                  [] 
-    })
-  } 
-  const storedSearch = await Search.findOne({
-    query: searchQuery
-  }).populate(
-    "results", "name url"
-  )
-  res.json(storedSearch)
+  //   await Search.create({
+  //       query: searchQuery, 
+  //       results: artists?
+  //                 artists.map(artist=>artist._id):
+  //                 [] 
+  //   })
+  // } 
+
+  // res.json(storedSearch)
 }
 
 const removeAllSearches = async () => {
