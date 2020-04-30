@@ -45,6 +45,6 @@
   "dependencies": {
     "coffee-script": "1.x.x",
     "google-diff-match-patch-js": "TallerWebSolutions/google-diff-match-patch-js#master",
-    "jquery": "1.x.x"
+    "jquery": "3.x.x"
   }
 }
